@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Validation Errors</title>
+</head>
+<body>
+<h2>Validation Errors in Uploaded File</h2>
+<p>Dear User,</p>
+<p>The following rows from your uploaded file failed validation:</p>
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Invalid Field</th>
+        <th>Error Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${invalidRows}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.validationField}"></td>
+        <td th:text="${user.validationMessage}"></td>
+    </tr>
+    </tbody>
+</table>
+<p>Please address these errors and try again.</p>
+</body>
+</html>
